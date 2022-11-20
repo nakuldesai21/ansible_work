@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: exicute the cmd
+      apt:
+        name: apache2
+        state: latest
+
