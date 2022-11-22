@@ -1,0 +1,10 @@
+---
+- name: To copy file using COPY module
+  hosts: localhost
+  tasks:
+    - name: copy a.txt to sample dir
+      copy:
+        src: /home/ubuntu/ansible/a.txt
+        dest: /home/ubuntu/ansible/kkk
+        force: no
+      tags: "File copied sucefully"
