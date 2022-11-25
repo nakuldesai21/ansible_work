@@ -1,0 +1,14 @@
+---
+- name: split into list
+  hosts: localhost
+  vars:
+    - emails: ['nakul123@gmail.com','ninad34@google.com','asdvf@yahoo.com']
+    - numbers: [12x3,13x4,15x9]
+  tasks:
+    - name: print values into list format
+      debug: msg="{{ item | split('@') | last }}"
+      loop: "{{ emails }}"
+      
+    - name: print values after x
+      debug: msg="{{item|split('x')|last}}"
+      loop: "{{ numbers }}"
