@@ -1,0 +1,13 @@
+---
+- name: AWS s3 bucket list-Ansible
+  hosts: localhost
+  tasks:
+    - name: list keys or objects
+      amazon.aws.aws_s3:
+        profile: personal
+        bucket: devopsjunctions
+        mode: list
+          #prefix: 2020/a #it shows specific output as mention in prefix
+      register: listresult
+
+    - debug: msg={{ listresult.s3_keys}}
