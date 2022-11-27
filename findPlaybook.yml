@@ -1,0 +1,14 @@
+---
+- name: Using Find Module
+  hosts: localhost
+  tasks:
+    - name: getting all logs
+      find: 
+        paths: /var/log
+        patterns: '*.log'
+        age: 30d
+        age_stamp: mtime
+      register: output
+    
+    - debug: var=item.path
+      with_items: "{{output.files}}"
