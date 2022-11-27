@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  name: to get list
+    #  vars:
+    #    continents: ["asia","africa","europe","Australia"]
+    #    countries: ["India","japan","canada"]
+  tasks:
+    #with set facts
+    - name: create list variable with set_fact
+      set_fact:
+        continents: ["asia","africa","europe","Australia"]
+        countries: ["India","japan","canada"]
+
+    - name: Display list of continents
+      debug: var=continents
+
+    - name: Display list of countries
+      debug: var=countries
+    
+    - name: To add element in list
+      set_fact:
+        countries: "{{countries+['indonesia','Rusia']}}"
+
+    - name: display list after addition
+      debug: var=countries
